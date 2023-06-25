@@ -1,8 +1,13 @@
+import axios from "axios"
 /*
   STEP 1: using axios, send a GET request to the following URL
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
+
+    
 */
+
+//axios.get(https://api.github.com/users/)
 
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
@@ -49,6 +54,45 @@ const followersArray = [];
       </div>
     </div>
 */
+
+function createCard({object}){
+  const cardDiv = document.createElement("div");
+  const image = document.createElement("img");
+  const cardInfoDiv = document.createElement("div");
+  const header = document.createElement("h3");
+  const para1 = document.createElement("p");
+  const para2 = document.createElement("p");
+  const para3 = document.createElement("p");
+  const aTag = document.createElement("a")
+  const para4 = document.createElement("p");
+  const para5 = document.createElement("p");
+  const para6 = document.createElement("p");
+
+  cardDiv.appendChild(cardInfoDiv);
+  cardDiv.appendChild(image)
+  cardDiv.appendChild(header);
+  cardDiv.appendChild(para1);
+  cardDiv.appendChild(para2);
+  cardDiv.appendChild(para3);
+  cardDiv.appendChild(aTag);
+  cardDiv.appendChild(para4);
+  cardDiv.appendChild(para5);
+  cardDiv.appendChild(para6);
+
+  cardDiv.classList.add("card");
+  cardInfoDiv.classList.add("card-info");
+  header.classList.add("name");
+  para1.classList.add(`username: ${object.username}`)
+  para2.textContent = `location: ${object.location}`;
+  header.textContent = `${object.name}`
+
+  
+console.log(cardDiv);
+}
+
+const testData = {username: "test name", name: "test name", location: "test location", followers: "test followers",following: "test following", bio: "test Bio" }
+
+createCard(testData);
 
 /*
   List of LS Instructors Github username's:
